@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Create an Employee</h1>
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <div mat-dialog-content>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Employee Name</mat-label>
+          <input type="text" formControlName="employeeName" matInput >
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Employee ID/Number</mat-label>
+          <input required="" type="number" matInput formControlName="employeeNumber" >
+        </mat-form-field>
+      
+      
+              <mat-form-field appearance="fill">
+          <mat-label>Job Description</mat-label>
+          <input type="text" matInput formControlName="jobDescription">
+        </mat-form-field>
+      
+        <mat-form-field appearance="fill">
+          <mat-label>Branch</mat-label>
+          <input type="text" matInput formControlName="branch">
+        </mat-form-field>
+      </div>
+
+
+<div mat-dialog-actions>
+  <button mat-button >Cancel</button>
+  <button mat-button   mat-raised-button color="primary" type="submit" [disabled]="!form.valid" [mat-dialog-close]  >Submit</button>
+</div>
+</form>

@@ -1,0 +1,7 @@
+version: "3"
+services:
+    angular-service:
+       container_name: meetingsApp
+       build: .
+       ports:
+           - "89:80"

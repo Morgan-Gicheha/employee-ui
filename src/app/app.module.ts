@@ -9,12 +9,24 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { EmployeesComponent } from './components/employees/employees.component';
 import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
+import { PostEmployeeComponent } from './components/post-employee/post-employee.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdateEmployeeComponent } from './components/update-employee/update-employee.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     EmployeesComponent,
+    PostEmployeeComponent,
+    UpdateEmployeeComponent,
 
   ],
   imports: [
@@ -23,7 +35,15 @@ import { HttpClientModule } from '@angular/common/http';
     MatSliderModule,
     BrowserAnimationsModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSnackBarModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Update Employee - {{ employeeName }}</h1>
+<form [formGroup]="formupdate" (ngSubmit)="submit()">
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Employee Name</mat-label>
+      <input type="text" formControlName="employeeName" matInput ngModel="{{ employeeName }}" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Job Description</mat-label>
+      <input type="text" ngModel="{{ jobDescription }}" matInput formControlName="jobDescription" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Branch</mat-label>
+      <input type="text"   ngModel="{{branch}}" matInput formControlName="branch" />
+    </mat-form-field>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button>Cancel</button>
+    <button mat-button mat-raised-button color="primary" type="submit" [mat-dialog-close]>
+      Submit
+    </button>
+  </div>
+</form>

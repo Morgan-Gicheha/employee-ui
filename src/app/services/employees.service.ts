@@ -14,22 +14,40 @@ export class EmployeesService {
 
 
   private employeeSource = new BehaviorSubject<any>(null!);
-  id$ = new BehaviorSubject<number>(null!);
- meetingSource$ = this.employeeSource.asObservable();
+  employeeSource$ = this.employeeSource.asObservable();
 
+  private singleEmployeeSource = new BehaviorSubject<any>(null!);
+  singleEmployeeSource$ =this.singleEmployeeSource.asObservable();
 
 
  getEmployee():Observable<any>{
    return this.http.get<any>(environment.baseUrl+'/employees/').pipe(
-     map((res)=>{
-       this.employeeSource.next(res)
-     })
-   )
+    map((res)=>{
+      this.employeeSource.next(res['response'])
+    })
+  )
 
+ }
+
+ getSingleEmployee(id:number){
+  return this.http.get<any>(environment.baseUrl+'/employees/'+id).pipe(
+    map((res)=>{
+      this.singleEmployeeSource.next(res['response'])
+    })
+  )
  }
 
  postEmployee(data:any):Observable<any>{
-   return this.http.post<any>(environment.baseUrl+'employees/',data)
+   return this.http.post<any>(environment.baseUrl+'/employees/',data)
 
  }
+
+ deleteEmployee(id:number){
+  return this.http.delete<any>(environment.baseUrl+'/employees/'+id)
+ }
+
+ putEmployee(id:number,data:any):Observable<any>{
+  return this.http.put<any>(environment.baseUrl+'/employees/'+id,data)
+
+}
 }
